@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pixel Valentine</title>
+
+<!-- Pixel font -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background: #ffe6eb;
+    overflow: hidden;
+}
+
+/* Pixel hearts background */
+body::before {
+    content: "❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤";
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    color: #ff6b81;
+    opacity: 0.4;
+}
+
+body::after {
+    content: "🌸 ❤ 🌸 ❤ 🌸 ❤ 🌸 ❤ 🌸 ❤";
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.active {
+    display: flex;
+}
+
+/* Pixel window */
+.window {
+    background: #ffd6de;
+    border: 6px solid #ff6b81;
+    box-shadow: 8px 8px 0 #ff6b81;
+    width: 320px;
+}
+
+.window-header {
+    background: #ff6b81;
+    color: white;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
+.window-body {
+    background: #fff0f4;
+    padding: 20px;
+}
+
+/* Pixel buttons */
+button {
+    font-family: 'Press Start 2P', cursive;
+    background: #ff6b81;
+    border: 4px solid #c94a63;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:active {
+    transform: translateY(3px);
+}
+
+/* Gift boxes */
+.gifts {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gift {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 5px solid #ff6b81;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Back button */
+.back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Bouquet card */
+.bouquet-card {
+    background: #ffd6de;
+    border: 6px solid #ff6b81;
+    padding: 30px;
+    box-shadow: 8px 8px 0 #ff6b81;
+}
+
+/* Pixel cat */
+.cat {
+    font-size: 60px;
+    animation: beg 1.2s infinite;
+}
+
+@keyframes beg {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <div class="window">
+        <div class="window-header">
+            LOVE
+            <div>▢ ✕</div>
+        </div>
+        <div class="window-body">
+            <div style="font-size:50px;">💌</div>
+            <p>LOVE LETTER</p>
+            <button onclick="showPage(2)">OPEN</button>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <div class="window">
+        <div class="window-header">
+            LOVE
+            <div>▢ ✕</div>
+        </div>
+        <div class="window-body">
+            <p>WILL YOU BE<br>MY VALENTINE?</p>
+            <div class="cat">🐱</div>
+
+            <div style="margin-top:20px;">
+                <button id="yesBtn" onclick="showPage(3)">YES</button>
+                <button id="noBtn">NO</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <h2>YAY!</h2>
+    <p>KAMU TERIMA</p>
+    <p>AKU BUAT INI UNTUKMU SAYANG</p>
+
+    <div class="gifts">
+        <div class="gift" onclick="showPage(4)">HADIAH 1</div>
+        <div class="gift" onclick="showPage(5)">HADIAH 2</div>
+        <div class="gift" onclick="showPage(6)">HADIAH 3</div>
+    </div>
+</div>
+
+<!-- GIFT 1 -->
+<div class="page" id="page4">
+    <button class="back" onclick="showPage(3)">BACK</button>
+    <div class="window-body" style="width:300px; height:500px; background:white;">
+        <p>Untuk sayang tercinta ku, </p>
+        <p>Makasih udah muncul di hidup akuh.</p>
+        <p>Aku sangat beruntung bisa bersama mu karena bisa melewati Valentine tahun ini bersama mu</p>
+        <p>Aku sangat sayang kamuhh, menunggu yu jadi bagian dari hidup kuu</p>
+        <p>Aku tau tiap hari aku kasi tau kamu ini, tapi kamu adalah cewe tercakeppp</p>
+        <p>Selalu sayang kamuu, mwaa</p>
+        <p>SELALU, SELAMANYA</p>
+    </div>
+</div>
+
+<!-- GIFT 2 -->
+<div class="page" id="page5">
+    <button class="back" onclick="showPage(3)">BACK</button>
+    <div class="bouquet-card">
+        <div style="font-size:80px;">💐</div>
+        <p>I ALWAYS LOVE YOU</p>
+        <p>NO MATTER WHAT</p>
+        <p>YOU ARE MY ONLY OPTION</p>
+        <p>BEST PART OF MY LIFE</p>
+    </div>
+</div>
+
+<!-- GIFT 3 -->
+<div class="page" id="page6">
+    <button class="back" onclick="showPage(3)">BACK</button>
+    <h2>THANK YOU</h2>
+    <div style="font-size:60px;">🍬 🍰 🍭 🧁</div>
+
+    <audio autoplay loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6cbd5a4c67.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+<script>
+function showPage(num) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("page" + num).classList.add("active");
+}
+
+/* NO button behavior */
+let noClicks = 0;
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+noBtn.addEventListener("click", () => {
+    noClicks++;
+
+    if (noClicks === 1) {
+        yesBtn.style.transform = "scale(1.2)";
+        noBtn.style.transform = "scale(0.8)";
+    } 
+    else if (noClicks === 2) {
+        yesBtn.style.transform = "scale(1.5)";
+        noBtn.style.transform = "scale(0.6)";
+    } 
+    else if (noClicks >= 3) {
+        noBtn.style.display = "none";
+        yesBtn.style.transform = "scale(1.8)";
+    }
+});
+</script>
+
+</body>
+</html>
